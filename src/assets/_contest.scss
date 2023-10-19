@@ -33,6 +33,7 @@ $decoration-line-border-weight: 2px;
   &.selected {
     background-color: var(--app-color-ocre);
     color: var(--app-color-black-soft);
+    font-weight: bold;
   }
 }
 
