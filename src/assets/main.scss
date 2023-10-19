@@ -1,0 +1,82 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  // --app-color-white: #ffffff;
+  --app-color-white-soft: #f8f8f8;
+  // --app-color-white-mute: #f2f2f2;
+
+  // --app-color-black: #181818;
+  --app-color-black-soft: #222222;
+  // --app-color-black-mute: #282828;
+
+  --app-color-indigo: lch(10% 9 260);
+  --app-color-indigo-veiled: lch(20% 8 260);
+
+  --app-color-ocre: lch(50% 200 85);
+  --app-color-ocre-veiled: lch(20% 8 85);
+
+  // --app-color-divider-light-1: rgba(60, 60, 60, 0.29);
+  // --app-color-divider-light-2: rgba(60, 60, 60, 0.12);
+  // --app-color-divider-dark-1: rgba(84, 84, 84, 0.65);
+  // --app-color-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  // --app-color-text-light-1: var(--vt-c-indigo);
+  // --app-color-text-light-2: rgba(60, 60, 60, 0.66);
+  // --app-color-text-dark-1: var(--vt-c-white);
+  // --app-color-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --color-text: var(--app-color-white-soft);
+  --color-background: var(--app-color-indigo)
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100dvh;
+
+  color: var(--color-text);
+  background: var(--color-background);
+
+  transition: 
+    color 0.5s,
+    background-color 0.5s;
+
+  line-height: 1.6;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100dvh;
+  font-weight: normal;
+}
+
+%container {
+  max-width: 1280px;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+@import "contest";

@@ -1,0 +1,80 @@
+$decoration-line-border-weight: 2px;
+
+%contest-box {
+  background-color: var(--app-color-indigo-veiled);
+  border-radius: 5em;
+  border: solid $decoration-line-border-weight var(--color-text);
+  padding: 1rem;
+}
+
+%decoration-line {
+  content: '';
+  display: block;
+  height: $decoration-line-border-weight;
+  background-color: var(--color-text);
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.c-question {
+  @extend %contest-box;
+  text-align: center;
+}
+
+.c-answer {
+  @extend %contest-box;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--app-color-ocre-veiled);
+  }
+
+  &.selected {
+    background-color: var(--app-color-ocre);
+    color: var(--app-color-black-soft);
+  }
+}
+
+.c-question-container {
+  position: relative;
+
+  &::before {
+    @extend %decoration-line;
+    top: 50%;
+  }
+
+  > .inner {
+    @extend %container;
+  }
+}
+
+.c-answers-container {
+  position: relative;
+
+  &::before {
+    @extend %decoration-line;
+    top: calc(25% - (var(--grid-gap, 0) / 4) + 1px);
+  }
+
+  &::after {
+    @extend %decoration-line;
+    bottom: calc(25% - (var(--grid-gap, 0) / 4) + 1px);
+  }
+
+  > .inner {
+    @extend %container;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+.c-contest-pane {
+  --grid-gap: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap);
+}
