@@ -1,6 +1,6 @@
-import type { Answer } from "./Answer";
+import type { Answer } from './Answer'
 
 export interface Question {
-    text: string;
-    answers: [Answer, Answer, Answer, Answer];
+  text: string
+  answers: [Answer, Answer, Answer, Answer]
 }

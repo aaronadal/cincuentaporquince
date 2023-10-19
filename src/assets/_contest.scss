@@ -4,7 +4,7 @@ $decoration-line-border-weight: 2px;
   background-color: var(--app-color-indigo-veiled);
   border-radius: 2em;
   border: solid $decoration-line-border-weight var(--color-text);
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 %decoration-line {
@@ -33,10 +33,44 @@ $decoration-line-border-weight: 2px;
     background-color: var(--app-color-ocre-veiled);
   }
 
+  &.idle {
+    background-color: var(--app-color-indigo-veiled);
+    cursor: default;
+  }
+
   &.selected {
     background-color: var(--app-color-ocre);
     color: var(--app-color-black-soft);
     font-weight: bold;
+  }
+
+  &.success {
+    background-color: var(--app-color-green);
+    color: var(--app-color-white-soft);
+    font-weight: bold;
+  }
+
+  &.error {
+    background-color: var(--app-color-red);
+    color: var(--app-color-white-soft);
+    font-weight: bold;
+  }
+
+  .answer-id {
+    color: var(--app-color-ocre);
+  }
+
+  &.selected {
+    .answer-id {
+      color: var(--app-color-black-mute);
+    }
+  }
+
+  &.success,
+  &.error {
+    .answer-id {
+      color: var(--app-color-white-mute);
+    }
   }
 }
 

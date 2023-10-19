@@ -1,12 +1,12 @@
 <script setup lang="ts">
 interface Props {
-    text: string;
+  text: string
 }
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>
-    <div class="c-question">
-        {{ text }}
-    </div>
+  <div class="c-question">
+    {{ text }}
+  </div>
 </template>

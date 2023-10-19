@@ -18,10 +18,10 @@ const router = createRouter({
       name: 'help',
       component: () => import('../views/HelpView.vue')
     },
-    { 
+    {
       path: '/:pathMatch(.*)*',
       component: () => import('../views/NotFoundView.vue')
-    },
+    }
   ]
 })
 

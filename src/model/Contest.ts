@@ -1,5 +1,5 @@
-import type { Question } from "./Question";
+import type { Question } from './Question'
 
 export interface question {
-    questions: Question[];
+  questions: Question[]
 }
