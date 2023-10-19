@@ -8,6 +8,14 @@ import ContestPane from '@/components/Contest/ContestPane.vue';
     <Logo />
     <h1>Contest</h1>
 
-    <ContestPane />
+    <ContestPane :question="{
+      text: 'Lorem ipsum dolor',
+      answers: [
+        { text: 'Uno', correct: false },
+        { text: 'Dos', correct: false },
+        { text: 'Tres', correct: true },
+        { text: 'Cuatro', correct: false },
+      ]
+    }" />
   </div>
 </template>

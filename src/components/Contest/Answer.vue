@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, toRefs, inject, computed } from 'vue';
+import { ref, toRefs, inject, computed } from 'vue';
 import type { Ref } from 'vue';
 
 const emit = defineEmits<{
@@ -7,10 +7,13 @@ const emit = defineEmits<{
 }>();
 
 interface Props {
-    id: string;
+    id: number;
+    text: string;
 }
 const props = defineProps<Props>();
-const { id } = toRefs(props);
+const { id: rawId } = toRefs(props);
+
+const id = computed(() => ['A', 'B', 'C', 'D'][rawId.value]);
 
 const selectedAnswer = inject<Ref<string>>('selectedAnswer', ref('e'));
 const selected = computed(() => selectedAnswer.value === id.value);
@@ -22,6 +25,7 @@ function onSelected() {
 
 <template>
     <div class="c-answer" :class="{ selected }" @click="onSelected">
-        Hola
+        <div class="answer-id">{{ id }}</div>
+        {{ text }}
     </div>
 </template>

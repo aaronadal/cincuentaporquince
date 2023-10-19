@@ -2,7 +2,7 @@ $decoration-line-border-weight: 2px;
 
 %contest-box {
   background-color: var(--app-color-indigo-veiled);
-  border-radius: 5em;
+  border-radius: 2em;
   border: solid $decoration-line-border-weight var(--color-text);
   padding: 1rem;
 }
@@ -25,6 +25,9 @@ $decoration-line-border-weight: 2px;
 .c-answer {
   @extend %contest-box;
   cursor: pointer;
+
+  display: flex;
+  gap: 1rem;
 
   &:hover {
     background-color: var(--app-color-ocre-veiled);
