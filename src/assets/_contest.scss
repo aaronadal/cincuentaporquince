@@ -4,7 +4,13 @@ $decoration-line-border-weight: 2px;
   background-color: var(--app-color-indigo-veiled);
   border-radius: 2em;
   border: solid $decoration-line-border-weight var(--color-text);
-  padding: 1rem 2rem;
+  padding: 1em 2em;
+}
+
+%contest-box-selected {
+  background-color: var(--app-color-ocre);
+  color: var(--app-color-black-soft);
+  font-weight: bold;
 }
 
 %decoration-line {
@@ -39,9 +45,7 @@ $decoration-line-border-weight: 2px;
   }
 
   &.selected {
-    background-color: var(--app-color-ocre);
-    color: var(--app-color-black-soft);
-    font-weight: bold;
+    @extend %contest-box-selected;
   }
 
   &.success {
@@ -115,4 +119,24 @@ $decoration-line-border-weight: 2px;
   display: flex;
   flex-direction: column;
   gap: var(--grid-gap);
+}
+
+.c-question-summary-item {
+  @extend %contest-box;
+  text-align: center;
+  padding: 0.33em 0.66em;
+
+  &.current {
+    @extend %contest-box-selected;
+  }
+}
+
+.c-question-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  font-size: 0.8em;
+
+  max-width: 20em;
 }

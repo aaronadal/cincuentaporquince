@@ -75,6 +75,13 @@ body {
 #app {
   min-height: 100dvh;
   font-weight: normal;
+
+  > .page {
+    min-height: 100dvh;
+
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+  }
 }
 
 %container {

@@ -1,5 +1,5 @@
 import type { Question } from './Question'
 
-export interface question {
+export interface Contest {
   questions: Question[]
 }

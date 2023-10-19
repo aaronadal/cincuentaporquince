@@ -1,5 +1,7 @@
+<script setup lang="ts">
+import schema from '@/model/contest.schema.json'
+</script>
+
 <template>
-  <div class="page">
-    <h1>Config</h1>
-  </div>
+  <div class="page"></div>
 </template>

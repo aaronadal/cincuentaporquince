@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Texto"
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "title": "Texto"
+                },
+                "correct": {
+                  "type": "boolean",
+                  "title": "¿Es correcta?"
+                }
+              },
+              "required": ["correct", "text"],
+              "title": "Respuesta"
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "uniqueItems": true
+          }
+        },
+        "required": ["answers", "text"],
+        "title": "Pregunta",
+        "minItems": 15,
+        "maxItems": 15,
+        "uniqueItems": true
+      }
+    }
+  },
+  "required": ["questions"],
+  "title": "Batería de preguntas"
+}

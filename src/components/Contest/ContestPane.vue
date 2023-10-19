@@ -4,18 +4,24 @@ import AnswersContainer from '@/components/Contest/AnswersContainer.vue'
 import Question from '@/components/Contest/Question.vue'
 import QuestionContainer from '@/components/Contest/QuestionContainer.vue'
 import type { Question as QuestionModel } from '@/model/Question'
-import { provide, ref } from 'vue'
+import { provide, ref, toRefs, watch } from 'vue'
 
 interface Props {
   question: QuestionModel
 }
-defineProps<Props>()
+const props = defineProps<Props>()
+const { question } = toRefs(props);
 
 const selectedAnswer = ref('')
 provide('selectedAnswer', selectedAnswer)
 
 const isResolved = ref(false)
 provide('isResolved', isResolved)
+
+watch(question, () => {
+    selectedAnswer.value = '';
+    isResolved.value = false;
+})
 
 function onAnswerSelected(id: string) {
   if (!isResolved.value) {

@@ -1,23 +1,31 @@
 <script setup lang="ts">
 import Logo from '@/components/Logo.vue'
 import ContestPane from '@/components/Contest/ContestPane.vue'
+import QuestionSummary from '@/components/Contest/QuestionSummary.vue'
+import { storeToRefs } from 'pinia'
+import { useContestStore } from '@/stores/contest'
+
+const { questions, current } = storeToRefs(useContestStore())
 </script>
 
 <template>
   <div class="page">
-    <Logo />
-    <h1>Contest</h1>
+    <header>
+      <Logo />
+    </header>
 
-    <ContestPane
-      :question="{
-        text: 'Lorem ipsum dolor',
-        answers: [
-          { text: 'Uno', correct: false },
-          { text: 'Dos', correct: false },
-          { text: 'Tres', correct: true },
-          { text: 'Cuatro', correct: false }
-        ]
-      }"
-    />
+    <div>
+      <QuestionSummary :questions="questions" :current-question="current" @goto="(idx) => current = idx" />
+    </div>
+
+    <div class="contest-pane-wrapper">
+      <ContestPane :question="questions[current]" />
+    </div>
   </div>
 </template>
+
+<style scoped>
+.contest-pane-wrapper {
+  padding-bottom: 2rem;
+}
+</style>
