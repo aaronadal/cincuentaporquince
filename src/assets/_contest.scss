@@ -23,15 +23,15 @@ $decoration-line-border-weight: 2px;
 }
 
 %contest-box-success {
-    background-color: var(--app-color-green);
-    color: var(--app-color-white-soft);
-    font-weight: bold;
+  background-color: var(--app-color-green);
+  color: var(--app-color-white-soft);
+  font-weight: bold;
 }
 
 %contest-box-error {
-    background-color: var(--app-color-red);
-    color: var(--app-color-white-soft);
-    font-weight: bold;
+  background-color: var(--app-color-red);
+  color: var(--app-color-white-soft);
+  font-weight: bold;
 }
 
 %decoration-line {

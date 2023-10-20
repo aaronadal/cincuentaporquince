@@ -1,5 +1,5 @@
 export interface Response {
-  selectedAnswer?: number;
+  selectedAnswer?: number
   completed: boolean
   success: boolean
 }

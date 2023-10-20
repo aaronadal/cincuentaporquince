@@ -17,7 +17,7 @@ const { id } = toRefs(props)
 
 const letter = computed(() => ['A', 'B', 'C', 'D'][id.value])
 
-const selectedAnswer = inject<Ref<number|undefined>>('selectedAnswer', ref(undefined))
+const selectedAnswer = inject<Ref<number | undefined>>('selectedAnswer', ref(undefined))
 const completed = inject<Ref<boolean>>('completed', ref(false))
 const success = inject<Ref<boolean>>('success', ref(false))
 

@@ -6,10 +6,10 @@ import type { Question } from '@/model/Question'
 import type { Response } from '@/model/Response'
 
 function initializeReponses(questions: Question[]): Response[] {
-    return questions.map(() => ({
-      completed: false,
-      success: false,
-    }));
+  return questions.map(() => ({
+    completed: false,
+    success: false
+  }))
 }
 
 export const useContestStore = defineStore('contest', () => {
@@ -52,14 +52,18 @@ export const useContestStore = defineStore('contest', () => {
   )
 
   const current = ref(0)
-  const responses = ref<Response[]>([]);
+  const responses = ref<Response[]>([])
 
-  watch(contest, () => {
-    current.value = 0
-    responses.value = initializeReponses(contest.value?.questions || []);
-  }, {
-    immediate: true,
-  })
+  watch(
+    contest,
+    () => {
+      current.value = 0
+      responses.value = initializeReponses(contest.value?.questions || [])
+    },
+    {
+      immediate: true
+    }
+  )
 
   return {
     setContest: (newContest: Contest) => (contest.value = newContest),
@@ -73,10 +77,10 @@ export const useContestStore = defineStore('contest', () => {
           {
             selectedAnswer: index === idx ? answer : current.selectedAnswer,
             completed: index === idx ? false : current.completed,
-            success: index === idx ? false : current.success,
+            success: index === idx ? false : current.success
           }
         ]
-      }, [] as Response[]);
+      }, [] as Response[])
     },
     completeResponse: (index: number, success: boolean) => {
       responses.value = responses.value.reduce((all, current, idx) => {
@@ -85,10 +89,10 @@ export const useContestStore = defineStore('contest', () => {
           {
             selectedAnswer: current.selectedAnswer,
             completed: index === idx ? true : current.completed,
-            success: index === idx ? success : current.success,
+            success: index === idx ? success : current.success
           }
         ]
-      }, [] as Response[]);
+      }, [] as Response[])
     }
   }
 })

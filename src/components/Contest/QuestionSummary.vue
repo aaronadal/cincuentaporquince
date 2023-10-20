@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionSummaryItem from '@/components/Contest/QuestionSummaryItem.vue'
-import type { Response } from '@/model/Response';
+import type { Response } from '@/model/Response'
 
 const emit = defineEmits<{
   (evt: 'goto', idx: number): void

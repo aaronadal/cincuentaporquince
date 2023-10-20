@@ -5,12 +5,12 @@ import Question from '@/components/Contest/Question.vue'
 import QuestionContainer from '@/components/Contest/QuestionContainer.vue'
 import type { Question as QuestionModel } from '@/model/Question'
 import type { Response } from '@/model/Response'
-import { provide, ref, toRefs, watch, computed } from 'vue'
+import { provide, toRefs, computed } from 'vue'
 
 const emit = defineEmits<{
-  (evt: 'select', answer: number): void,
-  (evt: 'resolve', success: boolean): void,
-}>();
+  (evt: 'select', answer: number): void
+  (evt: 'resolve', success: boolean): void
+}>()
 
 interface Props {
   question: QuestionModel
@@ -19,9 +19,18 @@ interface Props {
 const props = defineProps<Props>()
 const { question, response } = toRefs(props)
 
-provide('selectedAnswer', computed(() => response.value.selectedAnswer))
-provide('completed', computed(() => response.value.completed))
-provide('success', computed(() => response.value.success))
+provide(
+  'selectedAnswer',
+  computed(() => response.value.selectedAnswer)
+)
+provide(
+  'completed',
+  computed(() => response.value.completed)
+)
+provide(
+  'success',
+  computed(() => response.value.success)
+)
 
 function onAnswerSelected(answer: number) {
   if (!response.value.completed) {
@@ -30,8 +39,8 @@ function onAnswerSelected(answer: number) {
 }
 
 function onAnswerConfirmed() {
-  if(response.value.selectedAnswer === undefined) {
-    throw new Error('No answer selected!');
+  if (response.value.selectedAnswer === undefined) {
+    throw new Error('No answer selected!')
   }
 
   emit('resolve', question.value.answers[response.value.selectedAnswer].correct)

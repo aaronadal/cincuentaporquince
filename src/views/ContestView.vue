@@ -5,9 +5,9 @@ import QuestionSummary from '@/components/Contest/QuestionSummary.vue'
 import { storeToRefs } from 'pinia'
 import { useContestStore } from '@/stores/contest'
 
-const store = useContestStore();
-const { selectResponse, completeResponse } = store;
-const { questions, current, responses } = storeToRefs(store);
+const store = useContestStore()
+const { selectResponse, completeResponse } = store
+const { questions, current, responses } = storeToRefs(store)
 </script>
 
 <template>
@@ -27,7 +27,7 @@ const { questions, current, responses } = storeToRefs(store);
     </div>
 
     <div class="contest-pane-wrapper">
-      <ContestPane 
+      <ContestPane
         :question="questions[current]"
         :response="responses[current]"
         @select="(answer) => selectResponse(current, answer)"

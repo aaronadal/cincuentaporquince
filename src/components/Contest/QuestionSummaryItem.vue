@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Response } from '@/model/Response';
+import type { Response } from '@/model/Response'
 
 interface Props {
   index: number
@@ -15,7 +15,7 @@ defineProps<Props>()
     :class="{
       current,
       success: response.completed && response.success,
-      error: response.completed && !response.success,
+      error: response.completed && !response.success
     }"
   >
     Pregunta {{ index }}
