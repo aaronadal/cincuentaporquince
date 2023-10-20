@@ -143,6 +143,10 @@ $decoration-line-border-weight: 2px;
   padding: 0.33em 0.66em;
   cursor: pointer;
 
+  &:hover {
+    @extend %contest-box-hover;
+  }
+
   &.success {
     @extend %contest-box-success;
   }
@@ -165,4 +169,30 @@ $decoration-line-border-weight: 2px;
   font-size: 0.8em;
 
   max-width: 20em;
+}
+
+.c-joker {
+  @extend %contest-box;
+  padding: .75em 1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > svg {
+    font-size: 2em;
+  }
+
+  &:hover {
+    @extend %contest-box-hover;
+  }
+}
+
+.c-jokers-pane {
+  display: flex;
+  gap: 1em;
+
+  > .c-joker {
+    width: 8em;
+  }
 }

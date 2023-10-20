@@ -1,16 +1,14 @@
 export enum JokerType {
   HALF,
   CALL,
-  AUDIENCE,
+  AUDIENCE
 }
 
 export class Joker {
   readonly type: JokerType
   used: boolean = false
 
-  constructor(
-    type: JokerType
-  ) {
+  constructor(type: JokerType) {
     this.type = type
     this.reset()
   }
@@ -23,30 +21,20 @@ export class Joker {
 export class HalfJoker extends Joker {
   answers: [number, number, number, number] = [0, 1, 2, 3]
 
-  constructor(
-  ) {
+  constructor() {
     super(JokerType.HALF)
   }
 
   reset() {
-    super.reset();
+    super.reset()
 
     const answersShuffle = [0, 1, 2, 3].sort(() => Math.random() - 0.5)
 
-    this.used = false;
-    this.answers = [
-      answersShuffle[0],
-      answersShuffle[1],
-      answersShuffle[2],
-      answersShuffle[3],
-    ]
+    this.used = false
+    this.answers = [answersShuffle[0], answersShuffle[1], answersShuffle[2], answersShuffle[3]]
   }
 }
 
 export function createJokers(): [Joker, Joker, Joker] {
-  return [
-    new HalfJoker(),
-    new Joker(JokerType.CALL),
-    new Joker(JokerType.AUDIENCE),
-  ]
+  return [new HalfJoker(), new Joker(JokerType.CALL), new Joker(JokerType.AUDIENCE)]
 }

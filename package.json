@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.1.6",
     "@vueuse/core": "^10.5.0",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",

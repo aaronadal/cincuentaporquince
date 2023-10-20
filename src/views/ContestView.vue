@@ -4,6 +4,8 @@ import ContestPane from '@/components/Contest/ContestPane.vue'
 import QuestionSummary from '@/components/Contest/QuestionSummary.vue'
 import { storeToRefs } from 'pinia'
 import { useContestStore } from '@/stores/contest'
+import JokersPane from '@/components/Contest/JokersPane.vue'
+import { PhGear, PhQuestion } from "@phosphor-icons/vue";
 
 const store = useContestStore()
 const { selectResponse, completeResponse } = store
@@ -14,6 +16,15 @@ const { questions, current, responses } = storeToRefs(store)
   <div class="page">
     <header>
       <Logo />
+
+      <div class="jokers-pane-wrapper">
+        <JokersPane />
+      </div>
+
+      <div class="help-pane">
+        <PhGear />
+        <PhQuestion />
+      </div>
     </header>
 
     <div>
@@ -38,6 +49,20 @@ const { questions, current, responses } = storeToRefs(store)
 </template>
 
 <style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.help-pane {
+  font-size: 2rem;
+  display: flex;
+  gap: .5rem;
+  padding: 1rem;
+}
+
 .question-summary-wrapper {
   padding-left: 1rem;
 }
