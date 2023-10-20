@@ -10,28 +10,16 @@ export class Joker {
 
   constructor(type: JokerType) {
     this.type = type
-    this.reset()
-  }
-
-  reset() {
     this.used = false
   }
 }
 
 export class HalfJoker extends Joker {
-  answers: [number, number, number, number] = [0, 1, 2, 3]
+  readonly answers: [number, number, number, number]
 
   constructor() {
     super(JokerType.HALF)
-  }
-
-  reset() {
-    super.reset()
-
-    const answersShuffle = [0, 1, 2, 3].sort(() => Math.random() - 0.5)
-
-    this.used = false
-    this.answers = [answersShuffle[0], answersShuffle[1], answersShuffle[2], answersShuffle[3]]
+    this.answers = [0, 1, 2, 3].sort(() => Math.random() - 0.5) as [number, number, number, number]
   }
 }
 
