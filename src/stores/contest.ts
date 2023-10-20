@@ -2,6 +2,7 @@ import { ref, watch, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { useLocalStorage, StorageSerializers } from '@vueuse/core'
 import type { Contest } from '@/model/Contest'
+import type { Question } from '@/model/Question'
 
 export const useContestStore = defineStore('contest', () => {
   const contest = ref<Contest | undefined>(
@@ -50,6 +51,6 @@ export const useContestStore = defineStore('contest', () => {
 
   return {
     current,
-    questions: computed(() => contest.value.questions)
+    questions: computed<Question[]>(() => contest.value?.questions || [])
   }
 })
