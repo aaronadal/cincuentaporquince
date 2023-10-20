@@ -8,7 +8,7 @@ import JokersPane from '@/components/Contest/JokersPane.vue'
 import { PhGear, PhQuestion } from "@phosphor-icons/vue";
 
 const store = useContestStore()
-const { selectResponse, completeResponse, useJoker } = store
+const { selectResponse, completeResponse, useJoker, restoreJoker } = store
 const { questions, current, responses, jokers } = storeToRefs(store)
 </script>
 
@@ -17,7 +17,11 @@ const { questions, current, responses, jokers } = storeToRefs(store)
     <header>
       <Logo />
 
-      <JokersPane :jokers="jokers" @use="(joker) => useJoker(current, joker)" />
+      <JokersPane 
+        :jokers="jokers"
+        @use="(joker) => useJoker(current, joker)"
+        @restore="(joker) => restoreJoker(joker)"
+      />
 
       <div class="help-pane">
         <PhGear />

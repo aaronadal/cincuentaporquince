@@ -4,7 +4,7 @@ import { useLocalStorage, StorageSerializers } from '@vueuse/core'
 import type { Contest } from '@/model/Contest'
 import type { Question } from '@/model/Question'
 import type { Response } from '@/model/Response'
-import { createJokers, HalfJoker, type Joker } from '@/model/Joker'
+import { createJokers, HalfJoker, resetJoker, type Joker } from '@/model/Joker'
 
 function initializeReponses(questions: Question[]): Response[] {
   return questions.map(() => ({
@@ -136,6 +136,15 @@ export const useContestStore = defineStore('contest', () => {
           })
         ]
       }, [] as Response[])
+    },
+    restoreJoker: (joker: Joker) => {
+      jokers.value = jokers.value.map((j) => {
+        if(j.type === joker.type) {
+          return resetJoker(j)
+        }
+
+        return j
+      })
     }
   }
 })

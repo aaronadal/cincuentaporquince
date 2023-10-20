@@ -184,24 +184,45 @@ $decoration-line-border-weight: 2px;
 }
 
 .c-joker {
-  @extend %contest-box;
-  padding: .75em 1em;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 
-  > svg {
-    font-size: 2em;
-  }
+  > .inner {
+    @extend %contest-box;
+    padding: .75em 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  &:hover {
-    @extend %contest-box-hover;
+    > svg {
+      font-size: 2em;
+    }
+
+    &:hover {
+      @extend %contest-box-hover;
+    }
   }
 
   &.used {
-    @extend %contest-box-idle;
-    opacity: .3;
+    > .inner {
+      @extend %contest-box-idle;
+      opacity: .3;
+    }
+  }
+
+  > .restore {
+    background-color: var(--color-text);
+    color: var(--color-background);
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
   }
 }
 

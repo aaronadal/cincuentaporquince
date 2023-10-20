@@ -32,3 +32,11 @@ export class HalfJoker extends Joker {
 export function createJokers(): [Joker, Joker, Joker] {
   return [new HalfJoker(), new Joker(JokerType.CALL), new Joker(JokerType.AUDIENCE)]
 }
+
+export function resetJoker(joker: Joker): Joker {
+  if(joker instanceof HalfJoker) {
+    return new HalfJoker();
+  }
+
+  return new Joker(joker.type)
+}
