@@ -5,7 +5,9 @@ import { PhGear, PhQuestion } from "@phosphor-icons/vue";
 
 <template>
   <header>
+    <RouterLink :to="{name: 'home'}">
       <Logo />
+    </RouterLink>
 
       <div>
         <slot />

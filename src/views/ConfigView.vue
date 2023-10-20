@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import schema from '@/model/contest.schema.json'
+import Header from '@/components/Header.vue'
 </script>
 
 <template>
-  <div class="page"></div>
+  <div class="page">
+    <Header />
+  </div>
 </template>

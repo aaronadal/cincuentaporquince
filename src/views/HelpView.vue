@@ -1,5 +1,9 @@
+<script setup lang="ts">
+import Header from '@/components/Header.vue'
+</script>
+
 <template>
   <div class="page">
-    <h1>Help</h1>
+    <Header />
   </div>
 </template>
