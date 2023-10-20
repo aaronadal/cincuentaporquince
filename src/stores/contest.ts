@@ -23,13 +23,18 @@ function updateResponse(response: Response, modifications: Partial<Response>): R
   }
 }
 
-function responseHasJoker(response: Response, joker: Joker): boolean {
-  // Duplicated jokers are allowed unless they are of Half type.
-  if(!(joker instanceof HalfJoker)) {
+function canJokerBeUsed(response: Response, joker: Joker): boolean {
+  // If response is completed, cannot be used.
+  if(response.completed) {
     return false;
   }
 
-  return response.jokers.reduce((has, j) => {
+  // Duplicated jokers are allowed unless they are of Half type.
+  if(!(joker instanceof HalfJoker)) {
+    return true;
+  }
+
+  return !response.jokers.reduce((has, j) => {
     return has || j.type === joker.type;
   }, false);
 }
@@ -117,7 +122,7 @@ export const useContestStore = defineStore('contest', () => {
     },
     jokers: computed(() => jokers.value),
     useJoker: (index: number, joker: Joker) => {
-      if(responseHasJoker(responses.value[index], joker)) {
+      if(!canJokerBeUsed(responses.value[index], joker)) {
         return;
       }
 
