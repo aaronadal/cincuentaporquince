@@ -7,10 +7,31 @@ $decoration-line-border-weight: 2px;
   padding: 1em 2em;
 }
 
+%contest-box-hover {
+  background-color: var(--app-color-ocre-veiled);
+}
+
+%contest-box-idle {
+  background-color: var(--app-color-indigo-veiled);
+  cursor: default;
+}
+
 %contest-box-selected {
   background-color: var(--app-color-ocre);
   color: var(--app-color-black-soft);
   font-weight: bold;
+}
+
+%contest-box-success {
+    background-color: var(--app-color-green);
+    color: var(--app-color-white-soft);
+    font-weight: bold;
+}
+
+%contest-box-error {
+    background-color: var(--app-color-red);
+    color: var(--app-color-white-soft);
+    font-weight: bold;
 }
 
 %decoration-line {
@@ -36,12 +57,11 @@ $decoration-line-border-weight: 2px;
   gap: 1rem;
 
   &:hover {
-    background-color: var(--app-color-ocre-veiled);
+    @extend %contest-box-hover;
   }
 
   &.idle {
-    background-color: var(--app-color-indigo-veiled);
-    cursor: default;
+    @extend %contest-box-idle;
   }
 
   &.selected {
@@ -49,15 +69,11 @@ $decoration-line-border-weight: 2px;
   }
 
   &.success {
-    background-color: var(--app-color-green);
-    color: var(--app-color-white-soft);
-    font-weight: bold;
+    @extend %contest-box-success;
   }
 
   &.error {
-    background-color: var(--app-color-red);
-    color: var(--app-color-white-soft);
-    font-weight: bold;
+    @extend %contest-box-error;
   }
 
   .answer-id {
@@ -125,6 +141,7 @@ $decoration-line-border-weight: 2px;
   @extend %contest-box;
   text-align: center;
   padding: 0.33em 0.66em;
+  cursor: pointer;
 
   &.current {
     @extend %contest-box-selected;

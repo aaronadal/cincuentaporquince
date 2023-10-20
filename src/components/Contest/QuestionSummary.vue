@@ -3,8 +3,8 @@ import type { Question } from '@/model/Question'
 import QuestionSummaryItem from '@/components/Contest/QuestionSummaryItem.vue'
 
 const emit = defineEmits<{
-    (evt: 'goto', idx: number): void;
-}>();
+  (evt: 'goto', idx: number): void
+}>()
 
 interface Props {
   questions: Question[]

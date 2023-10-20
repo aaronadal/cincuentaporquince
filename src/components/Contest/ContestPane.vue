@@ -10,7 +10,7 @@ interface Props {
   question: QuestionModel
 }
 const props = defineProps<Props>()
-const { question } = toRefs(props);
+const { question } = toRefs(props)
 
 const selectedAnswer = ref('')
 provide('selectedAnswer', selectedAnswer)
@@ -19,8 +19,8 @@ const isResolved = ref(false)
 provide('isResolved', isResolved)
 
 watch(question, () => {
-    selectedAnswer.value = '';
-    isResolved.value = false;
+  selectedAnswer.value = ''
+  isResolved.value = false
 })
 
 function onAnswerSelected(id: string) {

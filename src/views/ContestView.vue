@@ -15,7 +15,11 @@ const { questions, current } = storeToRefs(useContestStore())
     </header>
 
     <div>
-      <QuestionSummary :questions="questions" :current-question="current" @goto="(idx) => current = idx" />
+      <QuestionSummary
+        :questions="questions"
+        :current-question="current"
+        @goto="(idx) => (current = idx)"
+      />
     </div>
 
     <div class="contest-pane-wrapper">
