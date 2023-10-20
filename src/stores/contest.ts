@@ -4,12 +4,23 @@ import { useLocalStorage, StorageSerializers } from '@vueuse/core'
 import type { Contest } from '@/model/Contest'
 import type { Question } from '@/model/Question'
 import type { Response } from '@/model/Response'
+import { createJokers, type Joker } from '@/model/Joker'
 
 function initializeReponses(questions: Question[]): Response[] {
   return questions.map(() => ({
     completed: false,
-    success: false
+    success: false,
+    jokers: []
   }))
+}
+
+function updateResponse(response: Response, modifications: Partial<Response>): Response {
+  return {
+    selectedAnswer: modifications.selectedAnswer !== undefined ? modifications.selectedAnswer : response.selectedAnswer,
+    completed: modifications.completed !== undefined ? modifications.completed : response.completed,
+    success: modifications.success !== undefined ? modifications.success : response.success,
+    jokers: modifications.jokers !== undefined ? modifications.jokers : response.jokers,
+  }
 }
 
 export const useContestStore = defineStore('contest', () => {
@@ -53,12 +64,14 @@ export const useContestStore = defineStore('contest', () => {
 
   const current = ref(0)
   const responses = ref<Response[]>([])
+  const jokers = ref<Joker[]>([])
 
   watch(
     contest,
     () => {
       current.value = 0
       responses.value = initializeReponses(contest.value?.questions || [])
+      jokers.value = createJokers()
     },
     {
       immediate: true
@@ -74,11 +87,9 @@ export const useContestStore = defineStore('contest', () => {
       responses.value = responses.value.reduce((all, current, idx) => {
         return [
           ...all,
-          {
-            selectedAnswer: index === idx ? answer : current.selectedAnswer,
-            completed: index === idx ? false : current.completed,
-            success: index === idx ? false : current.success
-          }
+          index !== idx ? current : updateResponse(current, {
+            selectedAnswer: answer,
+          })
         ]
       }, [] as Response[])
     },
@@ -86,11 +97,23 @@ export const useContestStore = defineStore('contest', () => {
       responses.value = responses.value.reduce((all, current, idx) => {
         return [
           ...all,
-          {
-            selectedAnswer: current.selectedAnswer,
-            completed: index === idx ? true : current.completed,
-            success: index === idx ? success : current.success
-          }
+          index !== idx ? current : updateResponse(current, {
+            completed: true,
+            success: success,
+          })
+        ]
+      }, [] as Response[])
+    },
+    jokers: computed(() => jokers.value),
+    useJoker: (index: number, joker: Joker) => {
+      joker.used = true;
+
+      responses.value = responses.value.reduce((all, current, idx) => {
+        return [
+          ...all,
+          index !== idx ? current : updateResponse(current, {
+            jokers: [...current.jokers, joker],
+          })
         ]
       }, [] as Response[])
     }

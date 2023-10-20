@@ -1,12 +1,27 @@
 <script setup lang="ts">
-import { createJokers } from '@/model/Joker'
+import type { Joker as JokerModel } from '@/model/Joker';
 import Joker from './Joker.vue'
 
-const jokers = createJokers()
+const emit = defineEmits<{
+    (evt: 'use', joker: JokerModel): void
+}>();
+
+interface Props {
+  jokers: JokerModel[]
+}
+defineProps<Props>()
+
+function onUseJocker(joker: JokerModel) {
+    if(joker.used) {
+        return;
+    }
+
+    emit('use', joker)
+}
 </script>
 
 <template>
   <div class="c-jokers-pane">
-    <Joker v-for="joker in jokers" :key="joker.type" :joker="joker" />
+    <Joker v-for="joker in jokers" :key="joker.type" :joker="joker" @click="onUseJocker(joker)" />
   </div>
 </template>
