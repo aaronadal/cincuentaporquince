@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Question } from '@/model/Question'
 import QuestionSummaryItem from '@/components/Contest/QuestionSummaryItem.vue'
+import type { Response } from '@/model/Response';
 
 const emit = defineEmits<{
   (evt: 'goto', idx: number): void
 }>()
 
 interface Props {
-  questions: Question[]
+  responses: Response[]
   currentQuestion: number
 }
 defineProps<Props>()
@@ -16,12 +16,11 @@ defineProps<Props>()
 <template>
   <div class="c-question-summary">
     <QuestionSummaryItem
-      v-for="(question, idx) in questions"
+      v-for="(response, idx) in responses"
       :key="idx"
       :index="idx + 1"
       :current="currentQuestion === idx"
-      :resolved="false"
-      :question="question"
+      :response="response"
       @click="emit('goto', idx)"
     />
   </div>

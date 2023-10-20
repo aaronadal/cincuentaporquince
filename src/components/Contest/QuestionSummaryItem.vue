@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { Question } from '@/model/Question'
+import type { Response } from '@/model/Response';
 
 interface Props {
   index: number
-  question: Question
+  response: Response
   current: boolean
-  resolved: boolean
 }
 defineProps<Props>()
 </script>
@@ -15,7 +14,8 @@ defineProps<Props>()
     class="c-question-summary-item"
     :class="{
       current,
-      resolved
+      success: response.completed && response.success,
+      error: response.completed && !response.success,
     }"
   >
     Pregunta {{ index }}

@@ -5,7 +5,7 @@ import QuestionSummary from '@/components/Contest/QuestionSummary.vue'
 import { storeToRefs } from 'pinia'
 import { useContestStore } from '@/stores/contest'
 
-const { questions, current } = storeToRefs(useContestStore())
+const { questions, current, responses } = storeToRefs(useContestStore())
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const { questions, current } = storeToRefs(useContestStore())
 
     <div>
       <QuestionSummary
-        :questions="questions"
+        :responses="responses"
         :current-question="current"
         @goto="(idx) => (current = idx)"
       />
