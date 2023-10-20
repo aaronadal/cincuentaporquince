@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import Logo from '@/components/Logo.vue'
+import Header from '@/components/Header.vue'
 import ContestPane from '@/components/Contest/ContestPane.vue'
 import QuestionSummary from '@/components/Contest/QuestionSummary.vue'
 import { storeToRefs } from 'pinia'
 import { useContestStore } from '@/stores/contest'
 import JokersPane from '@/components/Contest/JokersPane.vue'
-import { PhGear, PhQuestion } from "@phosphor-icons/vue";
 
 const store = useContestStore()
 const { selectResponse, completeResponse, useJoker, restoreJoker } = store
@@ -14,20 +13,13 @@ const { questions, current, responses, jokers } = storeToRefs(store)
 
 <template>
   <div class="page">
-    <header>
-      <Logo />
-
+    <Header>
       <JokersPane 
         :jokers="jokers"
         @use="(joker) => useJoker(current, joker)"
         @restore="(joker) => restoreJoker(joker)"
       />
-
-      <div class="help-pane">
-        <PhGear />
-        <PhQuestion />
-      </div>
-    </header>
+    </Header>
 
     <div>
       <div class="question-summary-wrapper">
@@ -51,20 +43,6 @@ const { questions, current, responses, jokers } = storeToRefs(store)
 </template>
 
 <style scoped>
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 2rem;
-}
-
-.help-pane {
-  font-size: 2rem;
-  display: flex;
-  gap: .5rem;
-  padding: 1rem;
-}
-
 .question-summary-wrapper {
   padding-left: 1rem;
 }

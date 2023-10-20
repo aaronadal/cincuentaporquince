@@ -90,4 +90,12 @@ body {
   margin: 0 auto;
 }
 
+a {
+  color: var(--color-text);
+
+  &:hover {
+    color: var(--app-color-ocre);
+  }
+}
+
 @import 'contest';
