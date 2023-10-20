@@ -186,6 +186,11 @@ $decoration-line-border-weight: 2px;
   &:hover {
     @extend %contest-box-hover;
   }
+
+  &.used {
+    @extend %contest-box-idle;
+    opacity: .3;
+  }
 }
 
 .c-jokers-pane {
