@@ -20,6 +20,7 @@ const letter = computed(() => ['A', 'B', 'C', 'D'][id.value])
 const selectedAnswer = inject<Ref<number | undefined>>('selectedAnswer', ref(undefined))
 const completed = inject<Ref<boolean>>('completed', ref(false))
 const success = inject<Ref<boolean>>('success', ref(false))
+const hiddenAnswers = inject<Ref<number[]>>('hiddenAnswers', ref([]))
 
 function onSelected() {
   if (selectedAnswer.value === id.value) {
@@ -39,11 +40,12 @@ function onSelected() {
       idle: completed,
       selected: selectedAnswer === id,
       success: completed && correct,
-      error: completed && selectedAnswer === id && !success
+      error: completed && selectedAnswer === id && !success,
+      hidden: hiddenAnswers.includes(id),
     }"
     @click="onSelected"
   >
     <div class="answer-id">{{ letter }}</div>
-    {{ text }}
+    <span>{{ text }}</span>
   </div>
 </template>

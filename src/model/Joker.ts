@@ -1,3 +1,5 @@
+import type { Answer } from "./Answer"
+
 export enum JokerType {
   HALF,
   CALL,
@@ -20,6 +22,10 @@ export class HalfJoker extends Joker {
   constructor() {
     super(JokerType.HALF)
     this.answers = [0, 1, 2, 3].sort(() => Math.random() - 0.5) as [number, number, number, number]
+  }
+
+  filterAnswers(answers: Answer[]): number[] {
+    return this.answers.filter((answer) => !answers[answer].correct).slice(0, answers.length / 2);
   }
 }
 

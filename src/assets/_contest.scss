@@ -76,6 +76,10 @@ $decoration-line-border-weight: 2px;
     @extend %contest-box-error;
   }
 
+  &.hidden {
+    visibility: hidden;
+  }
+
   .answer-id {
     color: var(--app-color-ocre);
   }

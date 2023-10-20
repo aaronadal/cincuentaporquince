@@ -3,6 +3,7 @@ import Answer from '@/components/Contest/Answer.vue'
 import AnswersContainer from '@/components/Contest/AnswersContainer.vue'
 import Question from '@/components/Contest/Question.vue'
 import QuestionContainer from '@/components/Contest/QuestionContainer.vue'
+import { HalfJoker, JokerType } from '@/model/Joker'
 import type { Question as QuestionModel } from '@/model/Question'
 import type { Response } from '@/model/Response'
 import { provide, toRefs, computed } from 'vue'
@@ -30,6 +31,17 @@ provide(
 provide(
   'success',
   computed(() => response.value.success)
+)
+provide(
+  'hiddenAnswers',
+  computed(() => {
+    const halfJoker = response.value.jokers.find((joker) => joker.type === JokerType.HALF) as HalfJoker;
+    if(!halfJoker) {
+      return [];
+    }
+
+    return halfJoker.filterAnswers(question.value.answers);
+  })
 )
 
 function onAnswerSelected(answer: number) {
