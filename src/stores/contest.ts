@@ -4,7 +4,7 @@ import { useLocalStorage, StorageSerializers } from '@vueuse/core'
 import type { Contest } from '@/model/Contest'
 import type { Question } from '@/model/Question'
 import type { Response } from '@/model/Response'
-import { createJokers, type Joker } from '@/model/Joker'
+import { createJokers, HalfJoker, type Joker } from '@/model/Joker'
 
 function initializeReponses(questions: Question[]): Response[] {
   return questions.map(() => ({
@@ -21,6 +21,17 @@ function updateResponse(response: Response, modifications: Partial<Response>): R
     success: modifications.success !== undefined ? modifications.success : response.success,
     jokers: modifications.jokers !== undefined ? modifications.jokers : response.jokers,
   }
+}
+
+function responseHasJoker(response: Response, joker: Joker): boolean {
+  // Duplicated jokers are allowed unless they are of Half type.
+  if(!(joker instanceof HalfJoker)) {
+    return false;
+  }
+
+  return response.jokers.reduce((has, j) => {
+    return has || j.type === joker.type;
+  }, false);
 }
 
 export const useContestStore = defineStore('contest', () => {
@@ -106,6 +117,10 @@ export const useContestStore = defineStore('contest', () => {
     },
     jokers: computed(() => jokers.value),
     useJoker: (index: number, joker: Joker) => {
+      if(responseHasJoker(responses.value[index], joker)) {
+        return;
+      }
+
       joker.used = true;
 
       responses.value = responses.value.reduce((all, current, idx) => {
