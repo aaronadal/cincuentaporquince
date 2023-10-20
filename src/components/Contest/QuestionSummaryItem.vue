@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Response } from '@/model/Response'
+import JokerIcon from './JokerIcon.vue';
 
 interface Props {
   index: number
@@ -19,5 +20,9 @@ defineProps<Props>()
     }"
   >
     Pregunta {{ index }}
+
+    <div class="jokers" v-if="response.jokers.length > 0">
+      <JokerIcon v-for="(joker, idx) in response.jokers" :key="idx" :type="joker.type" />
+    </div>
   </div>
 </template>
