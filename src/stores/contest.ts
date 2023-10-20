@@ -66,11 +66,24 @@ export const useContestStore = defineStore('contest', () => {
     current,
     questions: computed<Question[]>(() => contest.value?.questions || []),
     responses: computed(() => responses.value),
+    selectResponse: (index: number, answer: number) => {
+      responses.value = responses.value.reduce((all, current, idx) => {
+        return [
+          ...all,
+          {
+            selectedAnswer: index === idx ? answer : current.selectedAnswer,
+            completed: index === idx ? false : current.completed,
+            success: index === idx ? false : current.success,
+          }
+        ]
+      }, [] as Response[]);
+    },
     completeResponse: (index: number, success: boolean) => {
       responses.value = responses.value.reduce((all, current, idx) => {
         return [
           ...all,
           {
+            selectedAnswer: current.selectedAnswer,
             completed: index === idx ? true : current.completed,
             success: index === idx ? success : current.success,
           }

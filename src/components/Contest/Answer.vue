@@ -3,7 +3,7 @@ import { ref, toRefs, inject, computed } from 'vue'
 import type { Ref } from 'vue'
 
 const emit = defineEmits<{
-  (evt: 'selected', id: string): void
+  (evt: 'selected', id: number): void
   (evt: 'confirmed'): void
 }>()
 
@@ -13,13 +13,13 @@ interface Props {
   correct: boolean
 }
 const props = defineProps<Props>()
-const { id: rawId, correct } = toRefs(props)
+const { id } = toRefs(props)
 
-const id = computed(() => ['A', 'B', 'C', 'D'][rawId.value])
+const letter = computed(() => ['A', 'B', 'C', 'D'][id.value])
 
-const isResolved = inject<Ref<boolean>>('isResolved', ref(false))
-const selectedAnswer = inject<Ref<string>>('selectedAnswer', ref('e'))
-const selected = computed(() => selectedAnswer.value === id.value)
+const selectedAnswer = inject<Ref<number|undefined>>('selectedAnswer', ref(undefined))
+const completed = inject<Ref<boolean>>('completed', ref(false))
+const success = inject<Ref<boolean>>('success', ref(false))
 
 function onSelected() {
   if (selectedAnswer.value === id.value) {
@@ -36,14 +36,14 @@ function onSelected() {
   <div
     class="c-answer"
     :class="{
-      selected,
-      idle: isResolved,
-      success: isResolved && correct,
-      error: isResolved && selectedAnswer === id && !correct
+      idle: completed,
+      selected: selectedAnswer === id,
+      success: completed && correct,
+      error: completed && selectedAnswer === id && !success
     }"
     @click="onSelected"
   >
-    <div class="answer-id">{{ id }}</div>
+    <div class="answer-id">{{ letter }}</div>
     {{ text }}
   </div>
 </template>
