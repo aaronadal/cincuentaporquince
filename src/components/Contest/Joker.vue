@@ -1,29 +1,12 @@
 <script setup lang="ts">
-import { JokerType, type Joker } from '@/model/Joker'
-import { PhPercent, PhUsersThree, PhPhoneCall } from "@phosphor-icons/vue";
-import { toRefs, computed } from 'vue';
+import JokerIcon from './JokerIcon.vue'
+import { toRefs } from 'vue';
 
 interface Props {
   joker: Joker
 }
 const props = defineProps<Props>()
 const { joker } = toRefs(props);
-
-const icon = computed(() => {
-    if(joker.value.type === JokerType.HALF) {
-        return PhPercent;
-    }
-
-    if(joker.value.type === JokerType.AUDIENCE) {
-        return PhUsersThree;
-    }
-    
-    if(joker.value.type === JokerType.CALL) {
-        return PhPhoneCall;
-    }
-
-    throw new Error('Unexpected Joker type');
-})
 </script>
 
 <template>
@@ -33,6 +16,6 @@ const icon = computed(() => {
         used: joker.used
     }"
   >
-    <component :is="icon" />
+    <JokerIcon :type="joker.type" />
   </div>
 </template>

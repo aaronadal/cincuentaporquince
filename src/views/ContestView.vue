@@ -17,9 +17,7 @@ const { questions, current, responses } = storeToRefs(store)
     <header>
       <Logo />
 
-      <div class="jokers-pane-wrapper">
-        <JokersPane />
-      </div>
+      <JokersPane />
 
       <div class="help-pane">
         <PhGear />
