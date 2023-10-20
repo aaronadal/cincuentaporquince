@@ -143,8 +143,17 @@ $decoration-line-border-weight: 2px;
   padding: 0.33em 0.66em;
   cursor: pointer;
 
+  &.success {
+    @extend %contest-box-success;
+  }
+
+  &.error {
+    @extend %contest-box-error;
+  }
+
   &.current {
     @extend %contest-box-selected;
+    background-color: var(--app-color-ocre);
   }
 }
 
