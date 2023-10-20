@@ -90,6 +90,16 @@ body {
   margin: 0 auto;
 }
 
+.text-flow {
+  @extend %container;
+
+  font-size: 1.75em;
+
+  * + * {
+    margin-top: 1em;
+  }
+}
+
 a {
   color: var(--color-text);
 

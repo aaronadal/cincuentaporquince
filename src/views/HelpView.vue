@@ -5,5 +5,9 @@ import Header from '@/components/Header.vue'
 <template>
   <div class="page">
     <Header />
+    <div>
+      <div class="text-flow">
+      </div>
+  </div>
   </div>
 </template>

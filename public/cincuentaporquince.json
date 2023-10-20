@@ -1,0 +1,214 @@
+{
+    "questions": [
+        {
+            "text": "¿Cuál es el apellido de Rocky en la saga de películas del mismo título?",
+            "answers": [
+                {
+                    "text": "Dembow",
+                    "correct": false
+                },
+                {
+                    "text": "Jones",
+                    "correct": false
+                },
+                {
+                    "text": "Jackson",
+                    "correct": false
+                },
+                {
+                    "text": "Balboa",
+                    "correct": true
+                }
+            ]
+        },
+        {
+            "text": "¿Cuál es el principal ingrediente del gazpacho?",
+            "answers": [
+                {
+                    "text": "Remolacha",
+                    "correct": false
+                },
+                {
+                    "text": "Cebolla",
+                    "correct": false
+                },
+                {
+                    "text": "Tomate",
+                    "correct": true
+                },
+                {
+                    "text": "Pimiento",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "text": "¿De qué país proviene el oso panda?",
+            "answers": [
+                {
+                    "text": "China",
+                    "correct": true
+                },
+                {
+                    "text": "Japón",
+                    "correct": false
+                },
+                {
+                    "text": "Vietnam",
+                    "correct": false
+                },
+                {
+                    "text": "Tailandia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "text": "¿Con qué fruto seco se elabora el mazapán?",
+            "answers": [
+                {
+                    "text": "Anacardo",
+                    "correct": false
+                },
+                {
+                    "text": "Avellana",
+                    "correct": false
+                },
+                {
+                    "text": "Nuez",
+                    "correct": false
+                },
+                {
+                    "text": "Almendra",
+                    "correct": true
+                }
+            ]
+        },
+        {
+            "text": "¿Qué es una nectarina?",
+            "answers": [
+                {
+                    "text": "Una enzima",
+                    "correct": false
+                },
+                {
+                    "text": "Una fruta",
+                    "correct": true
+                },
+                {
+                    "text": "Un insecto",
+                    "correct": false
+                },
+                {
+                    "text": "Una hormona",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "text": "¿Sobre qué superficie se juega el curling?",
+            "answers": [
+                {
+                    "text": "Hierba",
+                    "correct": false
+                },
+                {
+                    "text": "Hielo",
+                    "correct": true
+                },
+                {
+                    "text": "Arena",
+                    "correct": false
+                },
+                {
+                    "text": "Cemento",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "text": "¿De qué color son las flores de la planta del café?",
+            "answers": [
+                {
+                    "text": "Rojo",
+                    "correct": false
+                },
+                {
+                    "text": "Marrón",
+                    "correct": false
+                },
+                {
+                    "text": "Blanco",
+                    "correct": true
+                },
+                {
+                    "text": "Amarillo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "text": "¿Cómo se llaman los padres de Harry Potter?",
+            "answers": [
+                {
+                    "text": "Claire y Phil",
+                    "correct": false
+                },
+                {
+                    "text": "Hermione y Ron",
+                    "correct": false
+                },
+                {
+                    "text": "Lily y James",
+                    "correct": true
+                },
+                {
+                    "text": "Minerva y Albus",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "text": "¿Qué país es el que más café produce en el mundo?",
+            "answers": [
+                {
+                    "text": "Brasil",
+                    "correct": true
+                },
+                {
+                    "text": "Colombia",
+                    "correct": false
+                },
+                {
+                    "text": "Arabia Saudí",
+                    "correct": false
+                },
+                {
+                    "text": "Estados Unidos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "text": "¿En qué océano está la Gran Barrera de Coral?",
+            "answers": [
+                {
+                    "text": "Glacial Ártico",
+                    "correct": false
+                },
+                {
+                    "text": "Atlántico",
+                    "correct": false
+                },
+                {
+                    "text": "Índico",
+                    "correct": false
+                },
+                {
+                    "text": "Pacífico",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}
