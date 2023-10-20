@@ -102,6 +102,7 @@ body {
 
 a {
   color: var(--color-text);
+  cursor: pointer;
 
   &:hover {
     color: var(--app-color-ocre);
