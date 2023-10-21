@@ -109,4 +109,17 @@ a {
   }
 }
 
+.button {
+  display: block;
+  background-color: var(--color-text);
+  color: var(--color-background);
+  padding: .25em 1em;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--app-color-white-mute);
+    color: var(--color-background);
+  }
+}
+
 @import 'contest';

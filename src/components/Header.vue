@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Logo from '@/components/Logo.vue'
-import { PhGear, PhQuestion } from "@phosphor-icons/vue";
+import { PhGear } from "@phosphor-icons/vue";
 </script>
 
 <template>
@@ -16,9 +16,6 @@ import { PhGear, PhQuestion } from "@phosphor-icons/vue";
       <div class="help-pane">
         <RouterLink :to="{name: 'config'}">
           <PhGear />
-        </RouterLink>
-        <RouterLink :to="{name: 'help'}">
-          <PhQuestion />
         </RouterLink>
       </div>
     </header>

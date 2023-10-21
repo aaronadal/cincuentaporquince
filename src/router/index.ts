@@ -14,11 +14,6 @@ const router = createRouter({
       component: () => import('../views/ConfigView.vue')
     },
     {
-      path: '/ayuda',
-      name: 'help',
-      component: () => import('../views/HelpView.vue')
-    },
-    {
       path: '/:pathMatch(.*)*',
       component: () => import('../views/NotFoundView.vue')
     }
