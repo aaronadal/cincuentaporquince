@@ -1,6 +1,5 @@
 import { ref, watch, computed } from 'vue'
 import { defineStore } from 'pinia'
-import { useLocalStorage, StorageSerializers } from '@vueuse/core'
 import type { Contest } from '@/model/Contest'
 import type { Question } from '@/model/Question'
 import type { Response } from '@/model/Response'
@@ -40,13 +39,7 @@ function canJokerBeUsed(response: Response, joker: Joker): boolean {
 }
 
 export const useContestStore = defineStore('contest', () => {
-  const contest = ref<Contest | undefined>(
-    /*'contest',*/
-    undefined,
-    {
-      serializer: StorageSerializers.object
-    }
-  )
+  const contest = ref<Contest | undefined>()
 
   const current = ref(0)
   const responses = ref<Response[]>([])
