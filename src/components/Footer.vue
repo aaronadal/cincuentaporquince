@@ -2,6 +2,8 @@
   <footer>
     <div>cincuentaporquince.</div>
     <div>
+      <a href="https://github.com/aaronadal" target="_blank">Github</a>
+      ·
       <a href="https://x.com/aaro8adal" target="_blank">@aaro8adal</a>
     </div>
   </footer>
