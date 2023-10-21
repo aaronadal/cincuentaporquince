@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import JokerIcon from './JokerIcon.vue'
+import { Joker } from '@/model/Joker'
 import { PhArrowCounterClockwise } from "@phosphor-icons/vue";
 import { toRefs } from 'vue';
 
