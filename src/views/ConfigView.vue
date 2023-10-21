@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import { ensureContestValid, type Contest } from '@/model/Contest'
 import { useContestStore } from '@/stores/contest';
 import { ref } from 'vue'
@@ -82,5 +83,6 @@ function retry() {
         <input v-else ref="file" style="margin-top: 4rem;" type="file" accept="application/json" @change="onUploadContest" />
       </div>
     </div>
+    <Footer />
   </div>
 </template>

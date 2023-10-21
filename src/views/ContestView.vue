@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import ContestPane from '@/components/Contest/ContestPane.vue'
 import QuestionSummary from '@/components/Contest/QuestionSummary.vue'
 import { storeToRefs } from 'pinia'
@@ -56,6 +57,8 @@ function loadDemoContest() {
         @resolve="(success) => completeResponse(current, success)"
       />
     </div>
+
+    <Footer />
   </div>
 </template>
 
