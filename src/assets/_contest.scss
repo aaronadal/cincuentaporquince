@@ -4,7 +4,7 @@ $decoration-line-border-weight: 2px;
   background-color: var(--app-color-indigo-veiled);
   border-radius: 2em;
   border: solid $decoration-line-border-weight var(--color-text);
-  padding: 1em 2em;
+  padding: .5em 1em;
 }
 
 %contest-box-hover {
@@ -134,11 +134,13 @@ $decoration-line-border-weight: 2px;
 }
 
 .c-contest-pane {
-  --grid-gap: 2rem;
+  --grid-gap: 1rem;
 
   display: flex;
   flex-direction: column;
   gap: var(--grid-gap);
+
+  font-size: 1.5em;
 }
 
 .c-question-summary-item {
@@ -178,9 +180,9 @@ $decoration-line-border-weight: 2px;
   flex-direction: column;
   gap: 0.5em;
 
-  font-size: 0.8em;
+  font-size: 1.25em;
 
-  max-width: 20em;
+  max-width: 15em;
   height: 100%;
   overflow: auto;
 }

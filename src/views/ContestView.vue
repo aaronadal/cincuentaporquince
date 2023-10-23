@@ -66,7 +66,7 @@ function loadDemoContest() {
 .question-summary-wrapper {
   padding-left: 1rem;
 
-  height: calc(100dvh - 30rem);
+  height: calc(100dvh - 33rem);
   min-height: 10rem;
 }
 
